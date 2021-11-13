@@ -106,7 +106,7 @@ const Register = () => {
                                         <input
                                             onBlur={getEmail}
                                             className='w-full text-gray-500 rounded py-2 pl-4'
-                                            type='text'
+                                            type='email'
                                             placeholder='Email Address'
                                         />
                                     </div>

@@ -63,13 +63,15 @@ const useFirebase = () => {
         });
     }, [auth]);
 
-    useEffect(() => {
+    
+    useEffect( () => {
         fetch(
-            `https://morning-ridge-85275.herokuapp.com/users/${user.email}`)
-                .then(res => res.json())
-            .then(data => setAdmin(data.admin))
-        
-    }, [user.email])
+            `https://morning-ridge-85275.herokuapp.com/users/${user.email}`
+        )
+            .then((res) => res.json())
+            .then((data) => setAdmin(data.admin));
+    }, [user.email]);
+
 
     const logOut = () => {
         signOut(auth).then(() => {

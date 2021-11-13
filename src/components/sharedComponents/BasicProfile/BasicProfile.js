@@ -3,7 +3,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import useAuth from '../../../hooks/useAuth'
 
 const BasicProfile = () => {
-    const {user, logout} = useAuth()
+    const {user, logOut} = useAuth()
     return (
         <div>
             <div className='bg-gray-200 grid grid-cols-1 divide-y-2 divide-gray-500 p-8 md:m-12 rounded'>
@@ -26,7 +26,7 @@ const BasicProfile = () => {
                             </button>
                         </div>
                     </div>
-                    <div className='w-3/4'>
+                    <div className='w-2/4'>
                         <h2 className='text-2xl font-semibold'>Full Name</h2>
                         <h2 className='text-3xl'>{user.displayName}</h2>
                         <h2 className='text-2xl font-semibold'>
@@ -34,9 +34,9 @@ const BasicProfile = () => {
                         </h2>
                         <h2 className='text-3xl'>{user.email}</h2>
                     </div>
-                    <div>
+                    <div className="w-1/4">
                         <button
-                            onClick={logout}
+                            onClick={logOut}
                             className='bg-primary my-4 px-8 py-2 text-xl text-black rounded'>
                             Log Out
                         </button>

@@ -92,7 +92,7 @@ const Login = () => {
                                     <input
                                         onBlur={getEmail}
                                         className='w-full glass-effect text-gray-700 rounded py-2 pl-4'
-                                        type='text'
+                                        type='email'
                                         placeholder='Email Address'
                                     />
                                 </div>
@@ -102,7 +102,7 @@ const Login = () => {
                                     <input
                                         onBlur={getPassword}
                                         className='w-full glass-effect text-gray-700 rounded py-2 pl-4'
-                                        type='text'
+                                        type='password'
                                         placeholder='Password'
                                     />
                                 </div>
