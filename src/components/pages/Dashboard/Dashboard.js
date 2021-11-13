@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Footer from '../../sharedComponents/Footer/Footer';
 import AppBar from '../../sharedComponents/AppBar/AppBar';
 import DashboardSidebar from '../../sharedComponents/DashboardSidebar/DashboardSidebar';
