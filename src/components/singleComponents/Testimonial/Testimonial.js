@@ -5,7 +5,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import "slick-carousel/slick/slick-theme.css";
 import useReviews from '../../../hooks/useReviews';
-import { FaUser } from 'react-icons/fa';
+import userImg from '../../../img/VhKI0hp.png';
 
 const Testimonial = () => {
     const [reviews] = useReviews();
@@ -48,25 +48,45 @@ const Testimonial = () => {
         <div>
             <Slider {...settings}>
                 {reviews.map((review) => (
-                    <div className='bg-white m-4 drop-shadow p-2'>
-                        <div className='flex justify-between mx-2'>
-                            <FaUser></FaUser>
-                            <Rating
-                                emptySymbol={
-                                    <FaRegStar className='text-yellow-400'></FaRegStar>
-                                }
-                                fullSymbol={
-                                    <FaStar className='text-yellow-400'></FaStar>
-                                }
-                                initialRating={review?.rating}
-                                readonly
-                            ></Rating>
+                    <>
+                        <div className='mx-4 flex max-w-lg pt-16'>
+                            <div className='w-full rounded bg-gray-100 relative p-8'>
+                                <div className='flex justify-between'>
+                                    <div className='flex'>
+                                        <div>
+                                            <img
+                                                className='h-12 w-12 rounded-full'
+                                                src={userImg}
+                                                alt=''
+                                            />
+                                        </div>
+                                        <div className='ml-4'>
+                                            <div className='font-bold'>
+                                                {review?.name}
+                                            </div>
+                                            <div className='mt-1 text-xs text-gray-500'>
+                                                {review?.designation}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='text-yellow-400 flex items-center'>
+                                        <Rating
+                                            emptySymbol={
+                                                <FaRegStar className='text-yellow-400'></FaRegStar>
+                                            }
+                                            fullSymbol={
+                                                <FaStar className='text-yellow-400'></FaStar>
+                                            }
+                                            initialRating={review?.rating}
+                                            readonly
+                                        ></Rating>
+                                    </div>
+                                </div>
+                                <div className='my-6 border-b' />
+                                <div className='text-sm'>{review?.review}</div>
+                            </div>
                         </div>
-                        <div>
-                            <h3>{review?.review}</h3>
-                            <h2>{review?.designation}</h2>
-                        </div>
-                    </div>
+                    </>
                 ))}
             </Slider>
         </div>

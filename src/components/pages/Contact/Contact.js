@@ -27,8 +27,8 @@ const Contact = () => {
                     <br /> Give us a call or send an email to contact the
                     HikingTour.
                 </p>
-                <div className='flex bg-primary p-12 mb-8 rounded-md'>
-                    <div className='w-1/3 text-gray-200'>
+                <div className='flex flex-col md:flex-row bg-primary p-12 mb-8 rounded-md'>
+                    <div className='md:w-1/3 text-gray-200'>
                         <div>
                             <h2 className='text2xl font-bold text-white'>
                                 General Information
@@ -57,18 +57,18 @@ const Contact = () => {
                             <p>Sunday : 10:00 AM - 4:00 PM</p>
                         </div>
                     </div>
-                    <div className='w-2/3'>
-                        <div className='glass-effect p-12 overflow-hidden'>
+                    <div className='md:w-2/3'>
+                        <div className='glass-effect md:p-12 overflow-hidden'>
                             <form action=''>
-                                <div className='flex my-2 overflow-hidden'>
-                                    <div className='w-1/2 mr-2'>
+                                <div className='flex flex-col md:flex-row my-2 overflow-hidden'>
+                                    <div className='md:w-1/2 mb-2 md:mb-0 md:mr-2'>
                                         <input
                                             className='w-full bg-gray-700 p-2 outline-none'
                                             type='text'
                                             placeholder='Enter Your Name'
                                         />
                                     </div>
-                                    <div className='w-1/2 ml-2'>
+                                    <div className='md:w-1/2 md:ml-2'>
                                         <input
                                             className='w-full p-2 bg-gray-700 outline-none'
                                             type='text'
@@ -76,15 +76,15 @@ const Contact = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className='flex my-2 overflow-hidden'>
-                                    <div className='w-1/2 mr-2'>
+                                <div className='flex flex-col md:flex-row my-2 overflow-hidden'>
+                                    <div className='md:w-1/2 mb-2 md:mb-0 md:mr-2'>
                                         <input
                                             className='w-full p-2 bg-gray-700 outline-none'
                                             type='text'
                                             placeholder='Enter Your Phone Number'
                                         />
                                     </div>
-                                    <div className='w-1/2 ml-2'>
+                                    <div className='md:w-1/2 md:ml-2'>
                                         <select
                                             className='w-full p-2 text-white bg-gray-700 outline-none'
                                             name=''
