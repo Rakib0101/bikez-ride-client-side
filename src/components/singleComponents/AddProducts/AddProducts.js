@@ -13,7 +13,9 @@ const AddProducts = () => {
      const onSubmit = (data) => {
          console.log(data);
          axios
-             .post("https://morning-ridge-85275.herokuapp.com/products", {...data})
+             .post("https://still-shelf-07747.herokuapp.com/products", {
+                 ...data,
+             })
              .then((res) => {
                  console.log(res.data);
                  if (res.data?.insertedId) {

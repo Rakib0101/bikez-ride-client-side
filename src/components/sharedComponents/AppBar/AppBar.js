@@ -1,13 +1,32 @@
-import React, { useState } from 'react';
-import { FaBars, FaUserCircle } from "react-icons/fa";
+import React, { useEffect, useState } from 'react';
+import { FaBars, FaRegHeart, FaShoppingBag, FaUserCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import UserProfile from '../UserProfile/UserProfile';
+import SidebarCart from '../SidebarCart/SidebarCart';
     
 const Navigation = () => {
     const { user } = useAuth();
     const [changeHeader, setChangeHeader] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [cartInfo, setCartInfo] = useState([]);
+    const [heartInfo, setHeartInfo] = useState([]);
+    const [open, setOpen] = useState(false);
+    const userEmail = user?.email;
+    // Get Single User Cart information
+    useEffect( () => {
+        fetch(`https://still-shelf-07747.herokuapp.com/carts/${userEmail}`)
+            .then((res) => res.json())
+            .then((data) => setCartInfo(data));
+    }, [userEmail]);
+
+    // Get Single Usern Heart information
+    useEffect(() => {
+        fetch(`https://still-shelf-07747.herokuapp.com/hearts/${userEmail}`)
+            .then((res) => res.json())
+            .then((data) => setHeartInfo(data));
+    }, [userEmail]);
+
     //header change function
     const onChangeHeader = () => {
         if (window.scrollY >= 150) {
@@ -90,7 +109,30 @@ const Navigation = () => {
                                                         Contact
                                                     </Link>
                                                 </li>
-                                                <li className='relative'>
+                                                <li className='nav-item'>
+                                                    <Link
+                                                        className='relative px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75'
+                                                        to='/heart'
+                                                    >
+                                                        <FaRegHeart></FaRegHeart>
+                                                        <span className='bg-black absolute right-0 top-0 rounded-full text-center w-4 h-4'>
+                                                            {heartInfo.length}
+                                                        </span>
+                                                    </Link>
+                                                </li>
+                                                <li className='nav-item mr-4'>
+                                                    <Link
+                                                        className='relative px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75'
+                                                        to='/cart'
+                                                    >
+                                                        <FaShoppingBag></FaShoppingBag>
+                                                        <span className='bg-black absolute right-0 top-0 rounded-full text-center w-4 h-4'>
+                                                            {cartInfo.length}
+                                                        </span>
+                                                    </Link>
+                                                </li>
+                                                
+                                                <li className='relative text-white'>
                                                     {user?.photoURL ? (
                                                         <button
                                                             onClick={toggle}
@@ -191,9 +233,33 @@ const Navigation = () => {
                                                         Contact
                                                     </Link>
                                                 </li>
-                                                <li className='relative'>
+                                                <li className='nav-item'>
+                                                    <Link
+                                                        className='relative px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75'
+                                                        to='/heart'
+                                                    >
+                                                        <FaRegHeart></FaRegHeart>
+                                                        <span className='bg-black absolute right-0 top-0 rounded-full text-center w-4 h-4'>
+                                                            {heartInfo.length}
+                                                        </span>
+                                                    </Link>
+                                                </li>
+                                                <li className='nav-item mr-4'>
+                                                    <Link
+                                                        className='relative px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75'
+                                                        to='/cart'
+                                                    >
+                                                        <FaShoppingBag></FaShoppingBag>
+                                                        <span className='bg-black absolute right-0 top-0 rounded-full text-center w-4 h-4'>
+                                                            {cartInfo.length}
+                                                        </span>
+                                                    </Link>
+                                                </li>
+                                                <li className='relative text-white'>
                                                     {user?.photoURL ? (
-                                                        <button onClick={toggle}>
+                                                        <button
+                                                            onClick={toggle}
+                                                        >
                                                             <img
                                                                 className='w-8 h-8 rounded-full'
                                                                 src={

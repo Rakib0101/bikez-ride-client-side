@@ -4,7 +4,7 @@ import swal from 'sweetalert'
 const ManageOrders = () => {
     const [ordersInfo, setOrdersInfo] = useState([]);
     useEffect(() => {
-        fetch(`https://morning-ridge-85275.herokuapp.com/orders`)
+        fetch(`https://still-shelf-07747.herokuapp.com/orders`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -13,12 +13,10 @@ const ManageOrders = () => {
     }, []);
 
     let handelAccept = (id) => {
-        const proceed = swal(
-            "Are you sure, You want to Accept this order?"
-        );
+        const proceed = swal("Are you sure, You want to Accept this order?");
         if (proceed) {
             // let sliceId = e.target.textContent.slice(6);
-            const url = `https://morning-ridge-85275.herokuapp.com/orders/${id}`;
+            const url = `https://still-shelf-07747.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: "PUT",
                 headers: {
@@ -38,7 +36,7 @@ const ManageOrders = () => {
         const proceed = window.confirm("Are you sure, You want to delete it?");
         if (proceed) {
             // let sliceId = e.target.textContent.slice(6);
-            const url = `https://morning-ridge-85275.herokuapp.com/orders/${id}`;
+            const url = `https://still-shelf-07747.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: "DELETE",
             })

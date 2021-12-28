@@ -25,7 +25,7 @@ const Checkout = () => {
         console.log(data);
         const { _id, ...rest } = product;
         axios
-            .post("https://morning-ridge-85275.herokuapp.com/orders", {
+            .post("https://still-shelf-07747.herokuapp.com/orders", {
                 ...data,
                 ...rest,
             })

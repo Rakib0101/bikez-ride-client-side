@@ -4,7 +4,7 @@ import swal from "sweetalert";
 const ManageProducts = () => {
     const [productsInfo, setProductsInfo] = useState([]);
     useEffect(() => {
-        fetch(`https://morning-ridge-85275.herokuapp.com/products`)
+        fetch(`https://still-shelf-07747.herokuapp.com/products`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -16,7 +16,7 @@ const ManageProducts = () => {
         const proceed = window.confirm("Are you sure, You want to delete it?");
         if (proceed) {
             // let sliceId = e.target.textContent.slice(6);
-            const url = `https://morning-ridge-85275.herokuapp.com/products/${id}`;
+            const url = `https://still-shelf-07747.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: "DELETE",
             })

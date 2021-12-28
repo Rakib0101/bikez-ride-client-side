@@ -8,14 +8,15 @@ const MakeAdmin = () => {
     }
     const handleOnSubmit = (e) => {
         const user = {email}
-        fetch("https://morning-ridge-85275.herokuapp.com/users/admin", {
+        fetch("https://still-shelf-07747.herokuapp.com/users/admin", {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
             },
             body: JSON.stringify(user),
-        }).then((res) => res.json())
-            .then(data => {
+        })
+            .then((res) => res.json())
+            .then((data) => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                     swal(
@@ -23,15 +24,14 @@ const MakeAdmin = () => {
                         `You make an admin successfully`,
                         "success"
                     );
-                }
-                else {
+                } else {
                     swal(
                         "Sorry!!!",
                         `This user not allowed for an admin`,
                         "ok"
                     );
                 }
-            })
+            });
         e.preventDefault();
     };
     return (

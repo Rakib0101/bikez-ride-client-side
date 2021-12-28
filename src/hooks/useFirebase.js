@@ -64,14 +64,11 @@ const useFirebase = () => {
     }, [auth]);
 
     
-    useEffect( () => {
-        fetch(
-            `https://morning-ridge-85275.herokuapp.com/users/${user.email}`
-        )
+    useEffect(() => {
+        fetch(`https://still-shelf-07747.herokuapp.com/users/${user.email}`)
             .then((res) => res.json())
             .then((data) => setAdmin(data.admin));
     }, [user.email]);
-
 
     const logOut = () => {
         signOut(auth).then(() => {
@@ -81,7 +78,7 @@ const useFirebase = () => {
     };
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch("https://morning-ridge-85275.herokuapp.com/users", {
+        fetch("https://still-shelf-07747.herokuapp.com/users", {
             method: method,
             headers: {
                 "content-type": "application/json",
